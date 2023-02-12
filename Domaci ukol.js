@@ -1,65 +1,46 @@
 // tady je místo pro náš program
-let text1 = 'Nejaky muj delsi text'.toUpperCase() //vse velkym
-let text2 = 'Nejaky muj delsi text'.toLocaleLowerCase() //vse malym
-let text3 = 'Nejaky muj delsi text'.length //pocet znaku v retezci
-let text4= 'Nejaky muj delsi text'.trim() //odstrani na zacatku, konci prazdne znaky (medzera)
-let text5 = 'Nejaky muj delsi text'.slice(0,6) //vypis prvnich 5 znaku, chcem zacinat od 0 znaku
-let text6 = 'cz.Nejaky muj delsi text'.indexOf('cz') //vypise umistneni hledaneho slova/textu/znaku
-let text7 = '20'.padStart(4,'0') //chceme posunout mista v ramci textu, chceme mit 2 mista na zacatku nulou
-let text8 = '20'.padStart(4,'0') //chceme posunout mista v ramci textu, chceme mit 2 mista na konci nulou
-//interpolace retazcov
-const order = {
-    id: 37214,
-    product: 'pěnová matrace',
-    delivery: '21.8.2023',
-  };
-  
-  const { id, product, delivery } = order;
-  //prvni moznost zapisu
-  let text = 'id' + id + 'Product' +product + 'doruceni do' 
-  document.body.innerHTML = (
-    '<h2>Objednávka: ' + id + '</h2>' +
-    '<p>Zboží ' + product + ' bude doručeno ' + delivery + '.</p>'
-  );
-  //druha moznost zapisu, pozor su tu jine uvodzovky 
-  let text_2 = `<p>Zbozi ${product} bude doruceno ${delivery}. </p>`
+const title = "Brief History of Time"
+console.log(title)
 
-  //viacriadkove retazce
+//Vypište do konzole počet znaků názvu.
+let pocetZnaku = title.length
+console.log(pocetZnaku)
+//Vypište název filmu převedený na velká písmena.
+let upperCase = title.toUpperCase()
+console.log(upperCase)
+//Vyřízněte z názvu prvních pět písmen.
+let extracted1 = title.slice(0,6)
+console.log(extracted1)
+//Vyřízněte z názvu posledních pět písmen.
+let extracted2 = title.slice(title.length - 5, title.length)
+console.log(extracted2)
 
-  let dalsiHtml =  `
-  <header>
-    <h1>Název stránky</h1>
-  </header>
-  <main>Obsah stránky</main>
-  <footer>Patička</footer>
-`
 
-//nebo mozeme staviat tabulku 
+//emaily 
+//Nechte uživatele zadat jeho e-mail a uložte si jej do proměnné email.
+let email = prompt("Zadej svoj email. ");
+//Pomocí metody indexOf najděte v tomto e-mailu pozici znaku zavináč. Tuto pozici si uložte do proměnné atIndex.
+let atIndex = email.indexOf('@');
+//Pomocí metody slice vyřízněte z e-mailu první část představující jméno a příjmení uživatele.
+let userName = email.slice(0,atIndex);
+let domain = email.slice(atIndex+ 1);
 
-let dalsiHtml2 = 
-`
-<header>Nadpis</header>
-    <p> ${product} </p>
-    <p> ${id} </p>
-    <p> ${delivery} </p>
-`
 
-let dalsiHtml3= 
+const parsedEmail = {
+  userName: userName,
+  domain: domain,
+}
+
+let dalsiHtml1= 
 `
 <header>
-    <h1>Objednávka: ${String(id).padStart(8, '0')}</h1>
+    <h1>Emaily</h1>
   </header>
   <main>
-    <p>Zboží ${product} bude doručeno ${delivery}.</p>
+    <p>Uzivatelske jmeno: ${userName}</p>
+    <p>Domena: ${domain}</p>
   </main>
-  <footer>www.matrace-a-syn.cz</footer>
 `
 
-document.body.innerHTML = dalsiHtml3
-
-
-
-
-
-
+document.body.innerHTML = dalsiHtml1
 
